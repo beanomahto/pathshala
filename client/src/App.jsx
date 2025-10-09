@@ -5,6 +5,7 @@ import Output from "./pages/Output.jsx";
 import Final from "./pages/Final.jsx";
 import Diaries from "./pages/Diaries.jsx";
 import AiTutor from "./pages/AiTutor.jsx";
+import Contribute from "./pages/Contribute.jsx";
 
 import { createContext, useState } from "react";
 
@@ -151,18 +152,18 @@ const MainContent = () => {
         {/* 🔹 Top-right links */}
         <div className="fixed top-4 right-4 z-50">
           <div className="flex items-center space-x-4 bg-white border-4 border-black shadow-[6px_6px_0px_black] rounded-xl px-4 py-2">
-            <a
-              href="https://github.com/beanomahto"
+            <Link
+              to="https://github.com/beanomahto"
               className="text-black font-bold hover:underline hover:bg-yellow-300 transition-colors"
             >
               Developer
-            </a>
-            <a
-              href="/main"
+            </Link>
+            <Link
+              to="/upload"
               className="text-black font-bold hover:underline hover:bg-yellow-300 transition-colors"
             >
               Contribute
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -179,7 +180,7 @@ const MainContent = () => {
             />
             <Route path="/AiTutor" element={<AiTutor />} />
             {/* <Route path="/developer" element={<Developer />} /> */}
-            {/* <Route path="/contribute" element={<Contribute />} /> */}
+            <Route path="/upload" element={<Contribute />} />
           </Routes>
         </div>
       </div>
