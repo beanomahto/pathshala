@@ -26,6 +26,7 @@ const corsOptions = {
   maxAge: 600,
 };
 app.use(cors(corsOptions));
+
 app.use(express.json());
 
 app.use("/api", apiRoutes);

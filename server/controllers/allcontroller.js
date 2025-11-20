@@ -1,3 +1,4 @@
+
 const supabase = require("../utility/supabase.js");
 const { years, semesters, branches, subjects } = require("../utility/db.js");
 const Home = (req, res) => {
