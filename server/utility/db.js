@@ -4,11 +4,11 @@ const semesters = ["1", "2", "3", "4", "5", "6", "7", "8"];
 const branches = ["CSE", "ECE"];
 const subjects = {
   CSE: {
-    6: ["MATHS", "PHYSICS"],
+    6: ["MATH", "PHY"],
     7: ["DSA", "OOPS"],
   },
   ECE: {
-    6: ["BSP", "COMPUTER_NETWORK", "VLSI", "IOT", "MICROWAVE_ELECTRONICS"],
+    6: ["BSP", "CN", "VLSI", "IOT", "MICRO"],
     7: ["CN", "DIGITAL"],
   },
 };
