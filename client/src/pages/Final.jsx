@@ -158,7 +158,7 @@ const Final = () => {
               stiffness: 80,
             }}
           >
-            Bank
+            {subject}-{year}
           </motion.div>
         </div>
 

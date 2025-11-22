@@ -99,7 +99,7 @@ const Output = () => {
               stiffness: 80,
             }}
           >
-            Bank
+            {branch}-{semester}
           </motion.div>
         </div>
 
