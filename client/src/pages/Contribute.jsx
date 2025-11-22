@@ -3,11 +3,20 @@ import axios from "axios";
 
 const Contribute = () => {
   const [semesters, setSemesters] = useState([]);
+  const [semester, setSemester] = useState(null);
   const [branches, setBranches] = useState([]);
+  const [branch, setBranch] = useState(null);
   const [subjects, setSubjects] = useState([]);
+  const [subject, setSubject] = useState([]);
   const [years, setYears] = useState([]);
-  const [types, setTypes] = useState([]);
-
+  const [year, setYear] = useState([]);
+  const [type, setType] = useState([]);
+  const types = {
+    0: "syllabus",
+    1: "mid_1",
+    2: "mid_2",
+    3: "end",
+  };
   const [formData, setFormData] = useState({
     semester: "",
     branch: "",
@@ -16,6 +25,52 @@ const Contribute = () => {
     type: "",
     file: null,
   });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const url = `${
+          import.meta.env.VITE_API_URL
+        }/api/getBranchesAndSemesters`;
+        const response = await axios.get(url, {});
+        const { semesters, branches } = response.data;
+        setBranches(branches);
+        setSemesters(semesters);
+        const url2 = `${import.meta.env.VITE_API_URL}/api/getYear`;
+        const response2 = await axios.get(url2, {});
+        setYears(response2.data);
+        setYear(response2.data[0]);
+        //console.log("data", data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+    // return () => {
+    //   setBranch(null);
+    //   setSemester(null);
+    //   setFlag(false);
+    // };
+  }, []);
+
+  const fetchSubjects = async (e) => {
+    //e.preventDefault();
+    if (branch == null || semester == null) return; // prevent useless calls
+    try {
+      const url = `${
+        import.meta.env.VITE_API_URL
+      }/api/getAllSubjects/${semester}/${branch}`;
+      const response = await axios.get(url);
+      if (response.data) {
+        setSubjects(response.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    fetchSubjects();
+  }, [branch, semester]);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -26,9 +81,8 @@ const Contribute = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-
     if (!formData.file) return alert("Please upload a file!");
+    e.preventDefault();
 
     const uploadData = new FormData();
     Object.entries(formData).forEach(([key, value]) =>
@@ -36,7 +90,8 @@ const Contribute = () => {
     );
 
     try {
-      const res = await axios.post("/api/upload", uploadData, {
+      const url = `${import.meta.env.VITE_API_URL}/api/upload`;
+      const res = await axios.post(url, uploadData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       alert("File uploaded successfully for admin approval!");
@@ -64,7 +119,10 @@ const Contribute = () => {
           <select
             name="semester"
             value={formData.semester}
-            onChange={handleChange}
+            onChange={(e) => {
+              handleChange(e);
+              setSemester(e.target.value);
+            }}
             className="w-full border rounded p-2"
             required
           >
@@ -83,7 +141,10 @@ const Contribute = () => {
           <select
             name="branch"
             value={formData.branch}
-            onChange={handleChange}
+            onChange={(e) => {
+              handleChange(e);
+              setBranch(e.target.value);
+            }}
             className="w-full border rounded p-2"
             required
           >
@@ -102,7 +163,10 @@ const Contribute = () => {
           <select
             name="subject"
             value={formData.subject}
-            onChange={handleChange}
+            onChange={(e) => {
+              handleChange(e);
+              setSubject(e.target.value);
+            }}
             className="w-full border rounded p-2"
             required
             disabled={!formData.branch || !formData.semester}
@@ -122,7 +186,10 @@ const Contribute = () => {
           <select
             name="year"
             value={formData.year}
-            onChange={handleChange}
+            onChange={(e) => {
+              handleChange(e);
+              setYear(e.target.value);
+            }}
             className="w-full border rounded p-2"
             required
           >
@@ -141,13 +208,16 @@ const Contribute = () => {
           <select
             name="type"
             value={formData.type}
-            onChange={handleChange}
+            onChange={(e) => {
+              handleChange(e);
+              setType(e.target.value);
+            }}
             className="w-full border rounded p-2"
             required
           >
             <option value="">Select Type</option>
-            {types.map((tp) => (
-              <option key={tp} value={tp}>
+            {Object.values(types).map((tp, idx) => (
+              <option key={idx} value={tp}>
                 {tp}
               </option>
             ))}
