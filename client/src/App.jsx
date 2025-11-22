@@ -96,6 +96,11 @@ const Sidebar = () => {
               AI-Tutor
             </Link>
           </li>
+          <li className="p-2 bg-white border-2 border-black rounded-xl shadow-[3px_3px_0px_black] hover:bg-red-300">
+            <Link to="/main" onClick={() => setOpen(false)}>
+              Result Analysis
+            </Link>
+          </li>
         </ul>
       </div>
 
@@ -107,30 +112,46 @@ const Sidebar = () => {
           </span>
         </div>
         <ul className="mt-6 space-y-4">
-          <li className="flex items-center p-2 rounded-xl bg-white border-2 border-black shadow-[3px_3px_0px_black] hover:bg-pink-300 transition">
-            <span>1.</span>
-            <span className="ml-3 opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity duration-500">
-              <Link to="/">Home</Link>
-            </span>
-          </li>
-          <li className="flex items-center p-2 rounded-xl bg-white border-2 border-black shadow-[3px_3px_0px_black] hover:bg-green-300 transition">
-            <span>2.</span>
-            <span className="ml-3 opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity duration-500">
-              <Link to="/main">Placement Diaries</Link>
-            </span>
-          </li>
-          <li className="flex items-center p-2 rounded-xl bg-white border-2 border-black shadow-[3px_3px_0px_black] hover:bg-blue-300 transition">
-            <span>3.</span>
-            <span className="ml-3 opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity duration-500">
-              <Link to="/home">PYQ+Syllabus</Link>
-            </span>
-          </li>
-          <li className="flex items-center p-2 rounded-xl bg-white border-2 border-black shadow-[3px_3px_0px_black] hover:bg-yellow-300 transition">
-            <span>4.</span>
-            <span className="ml-3 opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity duration-500">
-              <Link to="/AiTutor">AI-Tutor</Link>
-            </span>
-          </li>
+          <Link to="/" className="block">
+            <li className="flex items-center p-2 rounded-xl bg-white border-2 border-black shadow-[3px_3px_0px_black] hover:bg-pink-300 transition">
+              <span>1.</span>
+              <span className="ml-3 opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity duration-500">
+                Home
+              </span>
+            </li>
+          </Link>
+          <Link to="/main" className="block">
+            <li className="flex items-center p-2 rounded-xl bg-white border-2 border-black shadow-[3px_3px_0px_black] hover:bg-green-300 transition">
+              <span>2.</span>
+              <span className="ml-3 opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity duration-500">
+                Placement Diaries
+              </span>
+            </li>
+          </Link>
+          <Link to="/home" className="block">
+            <li className="flex items-center p-2 rounded-xl bg-white border-2 border-black shadow-[3px_3px_0px_black] hover:bg-blue-300 transition">
+              <span>3.</span>
+              <span className="ml-3 opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity duration-500">
+                PYQ+Syllabus
+              </span>
+            </li>
+          </Link>
+          <Link to="/AiTutor" className="block">
+            <li className="flex items-center p-2 rounded-xl bg-white border-2 border-black shadow-[3px_3px_0px_black] hover:bg-yellow-300 transition">
+              <span>4.</span>
+              <span className="ml-3 opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity duration-500">
+                AI-Tutor
+              </span>
+            </li>
+          </Link>
+          <Link to="/main" className="block">
+            <li className="flex items-center p-2 rounded-xl bg-white border-2 border-black shadow-[3px_3px_0px_black] hover:bg-red-300 transition">
+              <span>5.</span>
+              <span className="ml-3 opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity duration-500">
+                Result Analysis
+              </span>
+            </li>
+          </Link>
         </ul>
       </div>
     </>
