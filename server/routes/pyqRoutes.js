@@ -8,26 +8,29 @@ const {
 } = require("../controllers/pyqController.js");
 
 router.get("/getBranchesAndSemesters", AllBranchesSemesters);
+
 router.get("/getYear", getYear);
+
 router.get("/getAllSubjects/:semester/:branch", getBranch);
+
 router.get("/getPdf", getPdf);
 
 const multer = require("multer");
 const upload = multer({ storage: multer.memoryStorage() });
 const supabase = require("../utility/supabase.js");
 
-router.post("/upload-pdf", upload.single("file"), async (req, res) => {
+router.post("/upload", upload.single("file"), async (req, res) => {
   try {
     const file = req.file;
 
     if (!file) return res.status(400).json({ error: "No file uploaded" });
-
+    //unique file name banane ke liye
     const fileName = `pdfs/${Date.now()}_${file.originalname}`;
-
+    //bucket name=pending
     const { data, error } = await supabase.storage
       .from("pending")
       .upload(fileName, file.buffer, {
-        contentType: "application/pdf",
+        contentType: file.mimetype,
         upsert: false,
       });
 
