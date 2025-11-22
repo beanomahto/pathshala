@@ -72,41 +72,41 @@ const Sidebar = () => {
         className={`fixed top-0 left-0 h-full w-56 bg-yellow-300 border-r-4 border-black shadow-[6px_6px_0px_black] transform transition-transform duration-300 z-40
         ${open ? "translate-x-0" : "-translate-x-full"} md:hidden`}
       >
-        <div className="p-4 flex items-center">
-          <span className="text-lg font-bold">Pathshala</span>
+        <div className="pt-4 pl-20 flex items-center">
+          <span className="text-lg font-bold ">Pathshala</span>
         </div>
         <ul className="mt-6 space-y-4 px-2">
-          <li className="p-2 bg-white border-2 border-black rounded-xl shadow-[3px_3px_0px_black] hover:bg-pink-300">
-            <Link to="/" onClick={() => setOpen(false)}>
+          <Link to="/" onClick={() => setOpen(false)} className="block">
+            <li className="p-2 bg-white border-2 border-black rounded-xl shadow-[3px_3px_0px_black] hover:bg-pink-300">
               Home
-            </Link>
-          </li>
-          <li className="p-2 bg-white border-2 border-black rounded-xl shadow-[3px_3px_0px_black] hover:bg-green-300">
-            <Link to="/main" onClick={() => setOpen(false)}>
+            </li>
+          </Link>
+          <Link to="/main" onClick={() => setOpen(false)} className="block">
+            <li className="p-2 bg-white border-2 border-black rounded-xl shadow-[3px_3px_0px_black] hover:bg-green-300">
               Placement Diaries
-            </Link>
-          </li>
-          <li className="p-2 bg-white border-2 border-black rounded-xl shadow-[3px_3px_0px_black] hover:bg-blue-300">
-            <Link to="/home" onClick={() => setOpen(false)}>
+            </li>
+          </Link>
+          <Link to="/home" onClick={() => setOpen(false)} className="block">
+            <li className="p-2 bg-white border-2 border-black rounded-xl shadow-[3px_3px_0px_black] hover:bg-blue-300">
               PYQ+Syllabus
-            </Link>
-          </li>
-          <li className="p-2 bg-white border-2 border-black rounded-xl shadow-[3px_3px_0px_black] hover:bg-yellow-300">
-            <Link to="/AiTutor" onClick={() => setOpen(false)}>
+            </li>
+          </Link>
+          <Link to="/AiTutor" onClick={() => setOpen(false)} className="block">
+            <li className="p-2 bg-white border-2 border-black rounded-xl shadow-[3px_3px_0px_black] hover:bg-yellow-300">
               AI-Tutor
-            </Link>
-          </li>
-          <li className="p-2 bg-white border-2 border-black rounded-xl shadow-[3px_3px_0px_black] hover:bg-red-300">
-            <Link to="/main" onClick={() => setOpen(false)}>
+            </li>
+          </Link>
+          <Link to="/main" onClick={() => setOpen(false)} className="block">
+            <li className="p-2 bg-white border-2 border-black rounded-xl shadow-[3px_3px_0px_black] hover:bg-red-300">
               Result Analysis
-            </Link>
-          </li>
+            </li>
+          </Link>
         </ul>
       </div>
 
       {/* Desktop Sidebar (hover expand) */}
       <div className="hidden md:block group relative h-full bg-yellow-300 text-black transition-all duration-300 w-16 hover:w-56 border-r-4 border-black shadow-[6px_6px_0px_black]">
-        <div className="p-4 flex items-center">
+        <div className="pt-4 pl-10 flex items-center">
           <span className="ml-3 text-lg font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-500">
             Pathshala
           </span>
