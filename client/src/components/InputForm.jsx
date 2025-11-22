@@ -62,7 +62,7 @@ const InputForm = () => {
                 <option
                   key={b}
                   value={b}
-                  className="px-2 sm:px-4 py-1 sm:py-2 cursor-pointer hover:bg-yellow-300 font-medium"
+                  className="px-2 sm:px-4 py-1 sm:py-2 cursor-pointer hover:bg-yellow-300 font-medium break-words whitespace-normal overflow-hidden"
                 >
                   {b}
                 </option>
@@ -89,7 +89,7 @@ const InputForm = () => {
                 <option
                   key={sem}
                   value={sem}
-                  className="px-2 sm:px-4 py-1 sm:py-2 cursor-pointer hover:bg-yellow-300 font-medium"
+                  className="px-2 sm:px-4 py-1 sm:py-2 cursor-pointer hover:bg-yellow-300 font-medium break-words whitespace-normal overflow-hidden"
                 >
                   {sem}
                 </option>

@@ -79,12 +79,48 @@ const Final = () => {
   return (
     <div className="relative py-8 px-4 sm:px-10 md:px-20 w-full min-h-screen bg-[#fdfdf9] overflow-hidden">
       {/* Background oscillating cubes */}
-      <OscillatingCube size={100} top="20%" left="24%" color="#f97316" delay={0} />
-      <OscillatingCube size={120} top="40%" left="80%" color="#374151" delay={1} />
-      <OscillatingCube size={80} top="60%" left="4%" color="#60a5fa" delay={2} />
-      <OscillatingCube size={90} top="80%" left="50%" color="#f9da62ff" delay={1.5} />
-      <OscillatingCube size={40} top="90%" left="80%" color="#facc15" delay={1} />
-      <OscillatingCube size={70} top="80%" left="10%" color="#facc15" delay={1} />
+      <OscillatingCube
+        size={100}
+        top="20%"
+        left="24%"
+        color="#f97316"
+        delay={0}
+      />
+      <OscillatingCube
+        size={120}
+        top="40%"
+        left="80%"
+        color="#374151"
+        delay={1}
+      />
+      <OscillatingCube
+        size={80}
+        top="60%"
+        left="4%"
+        color="#60a5fa"
+        delay={2}
+      />
+      <OscillatingCube
+        size={90}
+        top="80%"
+        left="50%"
+        color="#f9da62ff"
+        delay={1.5}
+      />
+      <OscillatingCube
+        size={40}
+        top="90%"
+        left="80%"
+        color="#facc15"
+        delay={1}
+      />
+      <OscillatingCube
+        size={70}
+        top="80%"
+        left="10%"
+        color="#facc15"
+        delay={1}
+      />
 
       {/* Foreground content */}
       <div className="relative z-10">
@@ -132,11 +168,11 @@ const Final = () => {
             {Object.values(type).map((t, idx) => (
               <button
                 key={idx}
-                className="p-4 sm:p-6 bg-teal-300 border-4 border-black rounded-xl 
+                className="p-4 sm:p-6 bg-teal-200 border-4 border-black rounded-xl 
                            shadow-[6px_6px_0px_black] text-base sm:text-lg font-extrabold 
                            hover:translate-x-1 hover:translate-y-1 
                            hover:shadow-[2px_2px_0px_black] 
-                           transition-all duration-200 w-full"
+                           transition-all duration-200 w-full break-words whitespace-normal overflow-hidden"
                 onClick={() => handleClick(t)}
               >
                 {t}
@@ -148,6 +184,5 @@ const Final = () => {
     </div>
   );
 };
-
 
 export default Final;

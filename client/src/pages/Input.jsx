@@ -36,7 +36,9 @@ const Syllabus = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const url = `${import.meta.env.VITE_API_URL}/api/getBranchesAndSemesters`;
+        const url = `${
+          import.meta.env.VITE_API_URL
+        }/api/getBranchesAndSemesters`;
         const response = await axios.get(url, {});
         const { semesters, branches } = response.data;
         setBranches(branches);
@@ -102,13 +104,9 @@ const Syllabus = () => {
 
       {/* Foreground content */}
       <div className="relative z-10">
-        {/* <div className="flex">
-          <div className="mx-auto text-4xl mb-10 font-bold">padhle bsdk</div>
-        </div> */}
-        {/* EZCrack box */}
         <div className="flex justify-center">
           <motion.div
-            className="px-10 py-6 bg-teal-300 border-4 border-black text-6xl font-bold shadow-[6px_6px_0px_black]"
+            className="px-10 py-6 bg-teal-200 border-4 border-black text-6xl font-bold shadow-[6px_6px_0px_black]"
             initial={{ y: -200, rotate: -15, scale: 0.8, opacity: 0 }}
             animate={{ y: 0, rotate: -2, scale: 1, opacity: 1 }}
             transition={{
