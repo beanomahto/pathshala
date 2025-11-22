@@ -6,15 +6,12 @@ const ai = new GoogleGenAI({});
 const chat = async (req, res) => {
   try {
     const { question } = req.body;
-
-    // const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-    // const result = await model.generateContent(question);
     const result = await ai.models.generateContent({
       model: "gemini-1.5-flash",
       contents: question,
       config: {
         thinkingConfig: {
-          thinkingBudget: 0, // Disables thinking
+          thinkingBudget: 0,
         },
       },
     });

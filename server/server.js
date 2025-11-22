@@ -1,35 +1,24 @@
+//express
 const express = require("express");
 const app = express();
-const cors = require("cors");
+//dotenv
 const dotenv = require("dotenv");
-
 dotenv.config();
-const apiRoutes = require("./routes/apiRoutes");
-
-//integration
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://pathshala-blond.vercel.app",
-];
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  optionsSuccessStatus: 204,
-  maxAge: 600,
-};
+//cors
+const cors = require("cors");
+const { corsOptions } = require("./utility/cors.js");
 app.use(cors(corsOptions));
 
+//incoming json ko parse karne ke liye to req body
 app.use(express.json());
 
+//routes
+const apiRoutes = require("./routes/apiRoutes");
+const pyqRoutes = require("./routes/pyqRoutes");
+
+//route middlewares
 app.use("/api", apiRoutes);
+app.use("/api", pyqRoutes);
 
 //listening
 app.listen(8000, () => {
