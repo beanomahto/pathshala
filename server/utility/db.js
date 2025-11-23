@@ -1,5 +1,5 @@
 //data
-const years = ["2023", "2024", "2025"];
+const years = ["2024", "2025"];
 const semesters = ["1", "2", "3", "4", "5", "6", "7", "8"];
 const branches = [
   "CSE",
@@ -19,7 +19,7 @@ const subjects = {
   },
   ECE: {
     6: ["BSP", "CN", "VLSI", "IOT", "MICRO"],
-    7: ["OPTICAL", "SATELLITE","ANTENNA","5G","LPVLSI"],
+    7: ["OPTICAL", "SATELLITE", "ANTENNA", "5G", "LPVLSI"],
   },
 };
 
