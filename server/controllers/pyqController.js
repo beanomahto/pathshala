@@ -25,9 +25,8 @@ const getPdf = async (req, res) => {
 
   try {
     let url = "";
-    if (type == "syllabus")
-      url = `${semester}/${branch}/${subject}/syllabus.pdf`;
-    else url = `${semester}/${branch}/${subject}/${year}/${type}.pdf`;
+    if (type == "syllabus") url = `${semester}/${branch}/${subject}/syllabus`;
+    else url = `${semester}/${branch}/${subject}/${year}/${type}`;
     const { data } = supabase.storage
       .from("semesterQuestionBanks")
       .getPublicUrl(url);

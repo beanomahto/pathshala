@@ -1,7 +1,17 @@
 //data
 const years = ["2023", "2024", "2025"];
 const semesters = ["1", "2", "3", "4", "5", "6", "7", "8"];
-const branches = ["CSE", "ECE"];
+const branches = [
+  "CSE",
+  "IT",
+  "ECE",
+  "EE",
+  "ME",
+  "Civil",
+  "Chemical",
+  "Mining",
+  "Prod",
+];
 const subjects = {
   CSE: {
     6: ["MATH", "PHY"],
@@ -9,7 +19,7 @@ const subjects = {
   },
   ECE: {
     6: ["BSP", "CN", "VLSI", "IOT", "MICRO"],
-    7: ["CN", "DIGITAL"],
+    7: ["OPTICAL", "SATELLITE","ANTENNA","5G","LPVLSI"],
   },
 };
 
