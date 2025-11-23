@@ -55,7 +55,7 @@ const Contribute = () => {
 
   const fetchSubjects = async (e) => {
     //e.preventDefault();
-    if (branch == null || semester == null) return; // prevent useless calls
+    if (branch == null || semester == null) return;
     try {
       const url = `${
         import.meta.env.VITE_API_URL
@@ -191,7 +191,6 @@ const Contribute = () => {
               setYear(e.target.value);
             }}
             className="w-full border rounded p-2"
-            required
           >
             <option value="">Select Year</option>
             {years.map((yr) => (
