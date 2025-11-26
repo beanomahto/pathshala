@@ -6,6 +6,7 @@ import Final from "./pages/Final.jsx";
 import Diaries from "./pages/Diaries.jsx";
 import AiTutor from "./pages/AiTutor.jsx";
 import Contribute from "./pages/Contribute.jsx";
+import { Analytics } from "@vercel/analytics/next";
 
 import { createContext, useState } from "react";
 
@@ -47,6 +48,7 @@ const App = () => {
           </div>
         </BrowserRouter>
       </MyContext.Provider>
+      <Analytics />
     </div>
   );
 };
